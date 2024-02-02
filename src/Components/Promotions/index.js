@@ -2,16 +2,17 @@
 import { Box, Slide } from '@mui/material'
 import { MessageText, PromotionsContainer} from '../../Styles/promotions'
 import { useEffect, useRef, useState } from 'react'
-const messages=[
-    "trtyrt",
-    "rtrtry",
-    "fdfgdf",
+const promotionsData=[
+    { id: 2, image: '/images/banner/banner-img2.webp' },
+    { id: 3, image: '/images/banner/banner-img3.webp' },
+    { id: 4, image: '/images/banner/banner-img4.webp' },
+    { id: 5, image: '/images/banner/banner-img5.webp' }
 ]
 
 export default function Promotions(){
     const containerRef=useRef()
-const [messageIndex,setMessageIndex]=useState(0)
-const [show,setShow]=useState(true)
+    const [promotionIndex, setPromotionIndex] = useState(0);
+    const [show,setShow]=useState(true)
 
 useEffect(()=>{
 setTimeout(()=>{
@@ -19,7 +20,7 @@ setShow(false)
 },3000)
 
     const intervalId= setInterval(()=>{
-setMessageIndex(i=>(i+1) % messages.length)
+        setPromotionIndex(i=>(i+1) % promotionsData.length)
 setShow(true)
 setTimeout(()=>{
     setShow(false)
@@ -41,13 +42,14 @@ container={containerRef.current}
 
         timeout={{
             enter: 500,
-            exit: 100
+            exit: 800
         }}
         >
 <Box display={'flex'} justifyContent={'center'} alignItems={'center'}>
-    <MessageText>
-        {messages[messageIndex]}
-    </MessageText>
+<img
+            src={process.env.PUBLIC_URL + promotionsData[promotionIndex].image}
+            style={{ width: '100%', height: 'auto', borderRadius: ' 10px', marginTop:'10px'}}
+          />
 </Box>
         </Slide>
 

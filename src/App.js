@@ -5,7 +5,10 @@ import theme from './Styles/theme/Index';
 import AppBar from './Components/appbar/Index';
 import Banner from './Components/banner';
 import Promotions from './Components/Promotions';
-import Product from './products';
+import Routers from './routes';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { Products } from './Components/Products';
+
 function App() {
 useEffect(()=>{
 document.title="Shopping-Cart"
@@ -23,7 +26,7 @@ document.title="Shopping-Cart"
 <AppBar/>
 <Banner/>
      <Promotions/>
-     <Product/>
+     <Products/>
     </Container>
     </ThemeProvider>
    
